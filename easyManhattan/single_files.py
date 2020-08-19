@@ -61,8 +61,10 @@ def single_manhattan(filenames, label_vec, color_vec, x_size, y_size, y_scale_br
 
     f.suptitle(title_str)
     
-    #plt.show()
-    plt.savefig(output_path, format = 'pdf', dpi = 400)
+    if output_path == None:
+        plt.show()
+    else:
+        plt.savefig(output_path, format = 'pdf', dpi = 400)
 
 def single_plot_multi(ax, df, chrom_offset, chrom_start, color_vec, label_vec, trait_num):
     df['offset_num'] = df['CHR'].map(chrom_offset) - df['CHR'].map(chrom_start)
