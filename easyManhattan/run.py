@@ -1,8 +1,6 @@
 import argparse
 import double_files
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
+import single_files
 
 def main():
     parser = argparse.ArgumentParser(description='Make a Manhattan plot')
@@ -65,7 +63,11 @@ def main():
                         help = 'Desired output path of plot')
 
     args = parser.parse_args()
-    double_files.double_manhattan(args.filenames1, args.filenames2, args.label_vec, args.color_vec, args.x_size, args.y_size, args.y_scale_break, args.y_scale_padding, args.p_threshold, args.y_label_vec, args.title_str, args.output_path)
 
+    if args.filenames2 == None:
+        single_files.single_manhattan(args.filenames1, args.label_vec, args.color_vec, args.x_size, args.y_size, args.y_scale_break, args.y_scale_padding, args.p_threshold, args.y_label_vec, args.title_str, args.output_path)
+    else:
+        double_files.double_manhattan(args.filenames1, args.filenames2, args.label_vec, args.color_vec, args.x_size, args.y_size, args.y_scale_break, args.y_scale_padding, args.p_threshold, args.y_label_vec, args.title_str, args.output_path)
+    
 
 main()
