@@ -8,7 +8,7 @@ You can install easyManhattan using `pip install easyManhattan`, or alternativel
 * matplotlib
 
 ## Usage
-To use easyManhattan on the command line, you can make use of the `easyManhattan` command.  
+To use easyManhattan on the command line, you can make use of the `easyManhattan` command. If installed using `pip`, you can use `python -m easyManhattan`; alternatively, if you cloned the repository, you can use `python path_to_cloned_repository/easyManhattan/easyManhattan`. The arguments are as follows: <br />   
 `run.py [-h] --filenames FILENAMES1 [FILENAMES1 ...] [--double-filenames [FILENAMES2 [FILENAMES2 ...]]] --names LABEL_VEC [LABEL_VEC ...] --colors COLOR_VEC [COLOR_VEC ...] [--width X_SIZE] [--height Y_SIZE] [--y-break Y_SCALE_BREAK] [--y-padding Y_SCALE_PADDING] [--p-threshold P_THRESHOLD] [--y-labels Y_LABEL_VEC [Y_LABEL_VEC ...]] [--plot-title TITLE_STR] --output-path OUTPUT_PATH` <br />
 where the arguments are <br />
 *  `--filenames FILENAMES1 [FILENAMES1 ...]` List of summary statistic file paths 
