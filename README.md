@@ -33,6 +33,7 @@ The summary statistics can take a variety of formats--the only required columns 
 
 #### Locus Labels
 easyManhattan also has a simple labelling function as well, using matplotlib's `annotate` function. The labels must be specified in a file following the following format: <br />
+
 **Single Manhattan Plot** <br />
 Tab-delimited with 5 columns: CHR    Starting Position of Locus    Ending Position of Locus    Label    matplotlib Color Code <br />
 Single-position loci can be specified by using the same position for the starting and ending position. <br />
