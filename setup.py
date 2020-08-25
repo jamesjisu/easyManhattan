@@ -5,11 +5,11 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="easyManhattan",
-    version="1.0.0",
+    version="1.0.1",
     author="James Han",
     author_email="jamesjisu@gmail.com",
     description="An easy-to-use package to generate Manhattan plots",
-    long_description="An easy-to-use package to generate a diverse range of Manhattan plots.",
+    long_description="An easy-to-use package to generate a diverse range of Manhattan plots, including double Manhattan plots to visualize paired traits (such as male-female stratified GWAS results).",
     long_description_content_type="text/markdown",
     url="https://github.com/jamesjisu/easyManhattan",
     packages=setuptools.find_packages(),
