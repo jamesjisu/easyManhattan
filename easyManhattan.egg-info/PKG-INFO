@@ -1,12 +1,12 @@
 Metadata-Version: 2.1
 Name: easyManhattan
-Version: 1.0.0
+Version: 1.0.2
 Summary: An easy-to-use package to generate Manhattan plots
 Home-page: https://github.com/jamesjisu/easyManhattan
 Author: James Han
 Author-email: jamesjisu@gmail.com
 License: UNKNOWN
-Description: An easy-to-use package to generate a diverse range of Manhattan plots.
+Description: An easy-to-use package to generate a diverse range of Manhattan plots, including double Manhattan plots to visualize paired traits (such as male-female stratified GWAS results).
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License

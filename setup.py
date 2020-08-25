@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="easyManhattan",
-    version="1.0.1",
+    version="1.0.2",
     author="James Han",
     author_email="jamesjisu@gmail.com",
     description="An easy-to-use package to generate Manhattan plots",

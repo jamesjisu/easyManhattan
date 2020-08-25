@@ -1,14 +1,9 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-<<<<<<< HEAD
 import random
 
 def double_manhattan(filenames1, filenames2, chr_col, pos_col, p_col, variant_col, label_vec, color_vec, x_size, y_size, y_scale_break, y_scale_padding, p_threshold, y_label_vec, title_str, locus_labels, output_path):
-=======
-
-def double_manhattan(filenames1, filenames2, label_vec, color_vec, x_size, y_size, y_scale_break, y_scale_padding, p_threshold, y_label_vec, title_str, output_path):
->>>>>>> f0680097e2a0c1640ffc1c8bbcc3defb72adc17a
     f,(ax,ax2) = plt.subplots(2,1,sharex=True, facecolor='w', gridspec_kw={'hspace': 0})
     f.set_size_inches(x_size, y_size)
     all_max = 0
@@ -16,7 +11,6 @@ def double_manhattan(filenames1, filenames2, label_vec, color_vec, x_size, y_siz
     for pair in zip(filenames1, filenames2):
         df1 = pd.read_csv(pair[0], sep = "\t") 
         df2 = pd.read_csv(pair[1], sep = "\t") 
-<<<<<<< HEAD
         df1['log_p1'] = -np.log10(df1[p_col])
         df2['log_p2'] = np.log10(df2[p_col])
         if variant_col != None:
@@ -29,13 +23,6 @@ def double_manhattan(filenames1, filenames2, label_vec, color_vec, x_size, y_siz
             df1[variant_col] = str(df1[chr_col]) + ':' + str(df1['pos_col'])
             df2[variant_col] = str(df2[chr_col]) + ':' + str(df2['pos_col'])
             df = pd.merge(df1, df2, on = variant_col).dropna()
-=======
-        df1['log_p1'] = -np.log10(df1.pval)
-        df2['log_p2'] = np.log10(df2.pval)
-        df = pd.merge(df1, df2, on = 'variant').dropna()
-        df['CHR'] = df['variant'].apply(lambda x: 23 if x.split(":")[0] == "X" else int(x.split(":")[0]))
-        df['LOC'] = df['variant'].apply(lambda x: int(x.split(":")[1]))
->>>>>>> f0680097e2a0c1640ffc1c8bbcc3defb72adc17a
         
         if trait_num == 0:
             x_labels = []
@@ -45,7 +32,6 @@ def double_manhattan(filenames1, filenames2, label_vec, color_vec, x_size, y_siz
             chrom_offset_num = 0
             for chrom in range(1,23):
                 chrom_offset[chrom] = chrom_offset_num
-<<<<<<< HEAD
                 chrom_start[chrom] = min(df[df[chr_col] == chrom][pos_col])
                 x_labels.append(str(chrom))
                 x_labels_pos.append(chrom_offset_num + (float(max(df[df[chr_col] == chrom][pos_col])) 
@@ -54,16 +40,6 @@ def double_manhattan(filenames1, filenames2, label_vec, color_vec, x_size, y_siz
         
         if len(filenames1) > 1:
             trait_max = double_plot_multi(ax, ax2, df, chr_col, pos_col, chrom_offset, chrom_start, color_vec, label_vec, trait_num)
-=======
-                chrom_start[chrom] = min(df[df['CHR'] == chrom]['LOC'])
-                x_labels.append(str(chrom))
-                x_labels_pos.append(chrom_offset_num + (float(max(df[df['CHR'] == chrom]['LOC'])) 
-                                                        - float(min(df[df['CHR'] == chrom]['LOC'])))/2)
-                chrom_offset_num += max(df[df['CHR'] == chrom]['LOC']) - min(df[df['CHR'] == chrom]['LOC'])
-        
-        if len(filenames1) > 1:
-            trait_max = double_plot_multi(ax, ax2, df, chrom_offset, chrom_start, color_vec, label_vec, trait_num)
->>>>>>> f0680097e2a0c1640ffc1c8bbcc3defb72adc17a
             if all_max < trait_max:
                 all_max = trait_max
             if trait_num == 0:
@@ -71,11 +47,7 @@ def double_manhattan(filenames1, filenames2, label_vec, color_vec, x_size, y_siz
             else:
                 master_df = pd.concat([master_df,df])
         else:
-<<<<<<< HEAD
             all_max = double_plot_single(ax, ax2, df, chr_col, pos_col, chrom_offset, chrom_start, color_vec, trait_num)
-=======
-            all_max = double_plot_single(ax, ax2, df, chrom_offset, chrom_start, color_vec, trait_num)
->>>>>>> f0680097e2a0c1640ffc1c8bbcc3defb72adc17a
             master_df = df
         trait_num += 1
 
@@ -102,7 +74,6 @@ def double_manhattan(filenames1, filenames2, label_vec, color_vec, x_size, y_siz
     if p_threshold != 0:
         ax.hlines(y=-np.log10(p_threshold), xmin = 0, xmax = chrom_offset_num, linewidth = 1)
         ax2.hlines(y=np.log10(p_threshold), xmin = 0, xmax = chrom_offset_num, linewidth = 1)
-<<<<<<< HEAD
     
     #Add SNP labels
     if locus_labels != None:
@@ -116,8 +87,6 @@ def double_manhattan(filenames1, filenames2, label_vec, color_vec, x_size, y_siz
                 locus_labels_2.append(line.rsplit('\t'))
         add_locus_labels(ax, master_df, chr_col, pos_col, locus_labels_1, all_max + y_scale_padding, p_threshold, 1)
         add_locus_labels(ax2, master_df, chr_col, pos_col, locus_labels_2, all_max + y_scale_padding, p_threshold, 2)
-=======
->>>>>>> f0680097e2a0c1640ffc1c8bbcc3defb72adc17a
 
     f.suptitle(title_str)
     
@@ -126,39 +95,24 @@ def double_manhattan(filenames1, filenames2, label_vec, color_vec, x_size, y_siz
     else:
         plt.savefig(output_path, format = 'pdf', dpi = 400)
 
-<<<<<<< HEAD
 def double_plot_multi(ax, ax2, df, chr_col, pos_col, chrom_offset, chrom_start, color_vec, label_vec, trait_num):
     df['offset_num'] = df[chr_col].map(chrom_offset) - df[chr_col].map(chrom_start)
     df['IND'] = df[pos_col] + df['offset_num']
-=======
-def double_plot_multi(ax, ax2, df, chrom_offset, chrom_start, color_vec, label_vec, trait_num):
-    df['offset_num'] = df['CHR'].map(chrom_offset) - df['CHR'].map(chrom_start)
-    df['IND'] = df['LOC'] + df['offset_num']
->>>>>>> f0680097e2a0c1640ffc1c8bbcc3defb72adc17a
     ax.scatter(x = df['IND'], y = df['log_p1'], color = color_vec[trait_num], s = 3, label = label_vec[trait_num], rasterized = True)
     ax2.scatter(x = df['IND'], y = df['log_p2'], color = color_vec[trait_num], s = 3, rasterized = True)
 
     return max(max(df['log_p1'].tolist()), -min(df['log_p2'].tolist()))
 
-<<<<<<< HEAD
 def double_plot_single(ax, ax2, df, chr_col, pos_col, chrom_offset, chrom_start, color_vec, trait_num):
     df['offset_num'] = df[chr_col].map(chrom_offset) - df[chr_col].map(chrom_start)
     df['IND'] = df[pos_col] + df['offset_num']
     for chrom in range(1,23):
         tempdf = df[df[chr_col] == chrom]
-=======
-def double_plot_single(ax, ax2, df, chrom_offset, chrom_start, color_vec, trait_num):
-    df['offset_num'] = df['CHR'].map(chrom_offset) - df['CHR'].map(chrom_start)
-    df['IND'] = df['LOC'] + df['offset_num']
-    for chrom in range(1,23):
-        tempdf = df[df['CHR'] == chrom]
->>>>>>> f0680097e2a0c1640ffc1c8bbcc3defb72adc17a
         ax.scatter(x = tempdf['IND'], y = tempdf['log_p1'], color = color_vec[chrom%2], s = 3, rasterized = True)
         ax2.scatter(x = tempdf['IND'], y = tempdf['log_p2'], color = color_vec[chrom%2], s = 3, rasterized = True)
 
     return max(max(df['log_p1'].tolist()), -min(df['log_p2'].tolist()))
 
-<<<<<<< HEAD
 def add_locus_labels(ax, master_df, chr_col, pos_col, locus_labels_list, all_max, p_threshold, ax_num):
     horiz_align = ['left', 'right']
     locus_ind = 0
@@ -186,5 +140,3 @@ def add_locus_labels(ax, master_df, chr_col, pos_col, locus_labels_list, all_max
                         arrowprops=dict(arrowstyle="->"), color = locus[4].rstrip())
         locus_ind += 1
 
-=======
->>>>>>> f0680097e2a0c1640ffc1c8bbcc3defb72adc17a

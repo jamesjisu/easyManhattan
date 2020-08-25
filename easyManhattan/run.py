@@ -63,6 +63,7 @@ def main():
                         dest = 'p_threshold',
                         help = 'Specify p-value threshold to plot a horizontal line (5e-8 usually used)')
     parser.add_argument('--y-labels', 
+                        default = ["-log(p)"],
                         nargs = '+',
                         dest = 'y_label_vec',
                         help = 'Labels for y-axis (1 for single Manhattan plot, 2 for double Manhattan plot)')
