@@ -5,11 +5,11 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="easyManhattan",
-    version="0.0.1",
+    version="0.0.3",
     author="James Han",
     author_email="jamesjisu@gmail.com",
     description="An easy-to-use package to generate Manhattan plots",
-    long_description=An easy-to-use package to generate a diverse range of Manhattan plots.,
+    long_description="An easy-to-use package to generate a diverse range of Manhattan plots.",
     long_description_content_type="text/markdown",
     url="https://github.com/jamesjisu/easyManhattan",
     packages=setuptools.find_packages(),

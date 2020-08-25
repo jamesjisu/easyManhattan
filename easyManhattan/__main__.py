@@ -1,4 +1,4 @@
-import run
+from easyManhattan import run
 
 if __name__ == "__main__":
     run.main()
