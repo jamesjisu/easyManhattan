@@ -1,6 +1,10 @@
 Metadata-Version: 2.1
 Name: easyManhattan
-Version: 1.0.0
+<<<<<<< HEAD
+Version: 0.0.3
+=======
+Version: 0.0.2
+>>>>>>> f0680097e2a0c1640ffc1c8bbcc3defb72adc17a
 Summary: An easy-to-use package to generate Manhattan plots
 Home-page: https://github.com/jamesjisu/easyManhattan
 Author: James Han

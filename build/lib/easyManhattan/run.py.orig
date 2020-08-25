@@ -14,6 +14,7 @@ def main():
                         nargs = '*', 
                         help = 'List of second summary statistic file paths', 
                         dest = 'filenames2')
+<<<<<<< HEAD
     parser.add_argument('--chr-col',
                         help = 'Name of the chr-value column',
                         dest = 'chr_col')
@@ -27,6 +28,8 @@ def main():
     parser.add_argument('--variant-col',
                         help = 'Name of the variant column (formatted as CHR:POS:A1:A2)',
                         dest = 'variant_col')
+=======
+>>>>>>> f0680097e2a0c1640ffc1c8bbcc3defb72adc17a
     parser.add_argument('--names', 
                         nargs = '+', 
                         required = True,
@@ -48,8 +51,13 @@ def main():
                         dest = 'y_size',
                         help = 'Desired height of the plot (in inches)')
     parser.add_argument('--y-break', 
+<<<<<<< HEAD
                         type = float,
                         default = 0,
+=======
+                        default = 3,
+                        type = float,
+>>>>>>> f0680097e2a0c1640ffc1c8bbcc3defb72adc17a
                         dest = 'y_scale_break',
                         help = 'Y-axis break, to increase readability of the plot')
     parser.add_argument('--y-padding', 
@@ -70,15 +78,21 @@ def main():
                         default = 'Manhattan Plot',
                         dest = 'title_str',
                         help = 'Name of the plot')
+<<<<<<< HEAD
     parser.add_argument('--locus-labels',
                         dest = 'locus_labels',
                         help = 'Path to a tab-delimited file with locus labels')
     parser.add_argument('--output-path',
+=======
+    parser.add_argument('--output-path',
+                        required = True,
+>>>>>>> f0680097e2a0c1640ffc1c8bbcc3defb72adc17a
                         dest = 'output_path',
                         help = 'Desired output path of plot')
 
     args = parser.parse_args()
 
+<<<<<<< HEAD
     #Check for valid arguments
     if (args.variant_col == None) and ((args.chr_col == None) or (args.pos_col == None)):
         parser.error('Either the name of a chromosome and position column or the name of a variant column is required')
@@ -98,34 +112,18 @@ def main():
         raise ValueError("Dimensions must be positive values")
 
     if args.filenames2 == None: #Single Manhattan plot case
-<<<<<<< HEAD
-        if args.locus_labels != None:
-            loci_labels_file = open(args.locus_labels)
-            for line in loci_labels_file:
-                if len(line.rsplit("\t")) != 5:
-                    raise ValueError("Incorrect number of columns in locus labels file (also check for any whitespace issues)")
-=======
         loci_labels_file = open(args.locus_labels)
         for line in loci_labels_file:
             if len(line.rsplit("\t")) != 5:
                 raise ValueError("Incorrect number of columns in locus labels file (also check for any whitespace issues)")
->>>>>>> f0680097e2a0c1640ffc1c8bbcc3defb72adc17a
 
     else: #Double Manhattan plot case
         if len(args.filenames1) != len(args.filenames2):
             raise ValueError("Number of traits in top Manhattan plot and bottom Manhattan plot do not match")    
-<<<<<<< HEAD
-        if args.locus_labels != None:
-            loci_labels_file = open(args.locus_labels)
-            for line in loci_labels_file:
-                if len(line.rsplit("\t")) != 6:
-                    raise ValueError("Incorrect number of columns in locus labels file (also check for any whitespace issues)")
-=======
         loci_labels_file = open(args.locus_labels)
         for line in loci_labels_file:
             if len(line.rsplit("\t")) != 6:
                 raise ValueError("Incorrect number of columns in locus labels file (also check for any whitespace issues)")
->>>>>>> f0680097e2a0c1640ffc1c8bbcc3defb72adc17a
 
         
 
@@ -133,6 +131,12 @@ def main():
         single_files.single_manhattan(args.filenames1, args.chr_col, args.pos_col, args.p_col, args.variant_col, args.label_vec, args.color_vec, args.x_size, args.y_size, args.y_scale_break, args.y_scale_padding, args.p_threshold, args.y_label_vec, args.title_str, args.locus_labels, args.output_path)
     else:
         double_files.double_manhattan(args.filenames1, args.filenames2, args.chr_col, args.pos_col, args.p_col, args.variant_col, args.label_vec, args.color_vec, args.x_size, args.y_size, args.y_scale_break, args.y_scale_padding, args.p_threshold, args.y_label_vec, args.title_str, args.locus_labels, args.output_path)
+=======
+    if args.filenames2 == None:
+        single_files.single_manhattan(args.filenames1, args.label_vec, args.color_vec, args.x_size, args.y_size, args.y_scale_break, args.y_scale_padding, args.p_threshold, args.y_label_vec, args.title_str, args.output_path)
+    else:
+        double_files.double_manhattan(args.filenames1, args.filenames2, args.label_vec, args.color_vec, args.x_size, args.y_size, args.y_scale_break, args.y_scale_padding, args.p_threshold, args.y_label_vec, args.title_str, args.output_path)
+>>>>>>> f0680097e2a0c1640ffc1c8bbcc3defb72adc17a
     
 if __name__ == "__main__":
     main()

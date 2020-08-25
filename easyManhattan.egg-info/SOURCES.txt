@@ -6,6 +6,8 @@ easyManhattan/double_files.py
 easyManhattan/run.py
 easyManhattan/single_files.py
 easyManhattan.egg-info/PKG-INFO
+easyManhattan.egg-info/PKG-INFO.orig
 easyManhattan.egg-info/SOURCES.txt
 easyManhattan.egg-info/dependency_links.txt
+easyManhattan.egg-info/requires.txt
 easyManhattan.egg-info/top_level.txt

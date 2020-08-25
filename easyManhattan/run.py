@@ -98,34 +98,20 @@ def main():
         raise ValueError("Dimensions must be positive values")
 
     if args.filenames2 == None: #Single Manhattan plot case
-<<<<<<< HEAD
         if args.locus_labels != None:
             loci_labels_file = open(args.locus_labels)
             for line in loci_labels_file:
                 if len(line.rsplit("\t")) != 5:
                     raise ValueError("Incorrect number of columns in locus labels file (also check for any whitespace issues)")
-=======
-        loci_labels_file = open(args.locus_labels)
-        for line in loci_labels_file:
-            if len(line.rsplit("\t")) != 5:
-                raise ValueError("Incorrect number of columns in locus labels file (also check for any whitespace issues)")
->>>>>>> f0680097e2a0c1640ffc1c8bbcc3defb72adc17a
 
     else: #Double Manhattan plot case
         if len(args.filenames1) != len(args.filenames2):
             raise ValueError("Number of traits in top Manhattan plot and bottom Manhattan plot do not match")    
-<<<<<<< HEAD
         if args.locus_labels != None:
             loci_labels_file = open(args.locus_labels)
             for line in loci_labels_file:
                 if len(line.rsplit("\t")) != 6:
                     raise ValueError("Incorrect number of columns in locus labels file (also check for any whitespace issues)")
-=======
-        loci_labels_file = open(args.locus_labels)
-        for line in loci_labels_file:
-            if len(line.rsplit("\t")) != 6:
-                raise ValueError("Incorrect number of columns in locus labels file (also check for any whitespace issues)")
->>>>>>> f0680097e2a0c1640ffc1c8bbcc3defb72adc17a
 
         
 
