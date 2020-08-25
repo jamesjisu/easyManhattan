@@ -15,7 +15,7 @@ where the arguments are <br />
 *  `--filenames` List of summary statistic file paths 
 *  `--double-filenames` List of second summary statistic file paths 
 *  `--names` List of summary statistic trait names 
-*  `--colors` List of marker colors for multiple traits, or list of 2 colors for alternating chromosome marker colors 
+*  `--colors` List of marker colors for multiple traits, or list of 2 colors for alternating chromosome marker colors (choose color codes from [here](https://matplotlib.org/3.1.0/gallery/color/named_colors.html))
 *  `--width` Desired width of the plot (in inches) 
 *  `--height` Desired height of the plot (in inches) 
 *  `--y-break` Y-axis break, to increase readability of the plot 
