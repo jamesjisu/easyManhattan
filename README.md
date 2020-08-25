@@ -1,4 +1,6 @@
 # easyManhattan
+![Logo](https://raw.githubusercontent.com/jamesjisu/easyManhattan/master/logo.png)
+
 easyManhattan is an easy-to-use Python package to generate a variety of Manhattan plots, including double Manhattan plots, which can be used to explore differences in sex or other paired attributes
 
 ## Installation
@@ -56,4 +58,10 @@ Example: <br />
 
 
 
-## Tutorial
+## Tutorial 
+### Download
+To begin, clone the easyManhattan repository with `git clone https://github.com/jamesjisu/easyManhattan.git` or by downloading from GitHub. You can run easyManhattan directly from this cloned repository or by installing the package with `pip install easyManhattan`
+
+### Try Making a Plot
+You can try making an example Manhattan plot using the provided `example.txt` summary statistics. Navigate to the top level of the repository, and use the following command `python -m easyManhattan --filenames example.txt --p-col pval --variant-col variant --names test1 --colors black grey --plot-title easyManhattan --output-path test.pdf`
+. This will create the example plot as `example.pdf` in the top directory of the repository.
