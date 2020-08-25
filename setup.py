@@ -5,7 +5,11 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="easyManhattan",
+<<<<<<< HEAD
     version="0.0.3",
+=======
+    version="0.0.2",
+>>>>>>> f0680097e2a0c1640ffc1c8bbcc3defb72adc17a
     author="James Han",
     author_email="jamesjisu@gmail.com",
     description="An easy-to-use package to generate Manhattan plots",
