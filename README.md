@@ -63,4 +63,5 @@ Example: <br />
 To begin, clone the easyManhattan repository with `git clone https://github.com/jamesjisu/easyManhattan.git` or by downloading from GitHub. You can run easyManhattan directly from this cloned repository or by installing the package with `pip install easyManhattan`
 
 ### Try Making a Plot
-You can try making an example Manhattan plot using the provided `example.txt` summary statistics. 
+You can try making an example Manhattan plot using the provided `example.txt` summary statistics. Navigate to the top level of the repository, and use the following command `python -m easyManhattan --filenames example.txt --p-col pval --variant-col variant --names test1 --colors black grey --plot-title easyManhattan --output-path test.pdf`
+. This will create the example plot as `example.pdf` in the top directory of the repository.
